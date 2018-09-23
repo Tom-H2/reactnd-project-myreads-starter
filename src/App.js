@@ -2,7 +2,13 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+import {getAll} from './BooksAPI'
+
 import Books from './components/Books'
+
+getAll().then((books)=>{
+  console.log(books);
+})
 
 class BooksApp extends React.Component {
   state = {
