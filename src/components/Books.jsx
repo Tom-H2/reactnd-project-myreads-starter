@@ -1,3 +1,5 @@
+//Component to get API data about individual books
+
 import React, { Component } from 'react'
 
 export default class Book extends Component {
