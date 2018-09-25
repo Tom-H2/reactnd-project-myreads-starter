@@ -1,7 +1,7 @@
 //import React libraries
 import React from 'react'
-//import { link } from 'react-router-dom'
-//import { Route } from 'react-router-dom'
+import { link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 //imports API
 import * as BooksAPI from './BooksAPI'
 import './App.css'
