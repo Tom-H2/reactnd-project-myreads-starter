@@ -1,0 +1,31 @@
+//Currently Reading, Want to Read, and Read shelves
+//Makes component to render books from API to selected shelves
+//imports React
+import React, { Component } from 'react'
+
+import Books from './Books'
+
+class BookShelf extends Component {
+  //use map() to sort through BooksAPI
+
+
+  render() {
+    let count = 0;
+    let renderBook = (book) => {
+      return (<Books key={count++} title = {book.title}  author={book.author} coverImage={book.coverImage} />);
+    }
+
+    console.log('test', this.props);
+  return (
+      <div className="bookshelf">
+        <h2 className="bookshelf-title">{this.props.shelfName}</h2>
+          <div className="bookshelf-books">
+            <ol className="books-grid">
+              {this.props.books.map(renderBook)}
+            </ol>
+        </div>
+      </div>
+    )
+  }
+}
+export default BookShelf
