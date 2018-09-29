@@ -9,7 +9,7 @@ export default class Book extends Component {
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:this.props.coverImage }}></div>
-          <div className="book-shelf-changer">
+          <div onClick{() => props.onchangeShelf(move))}  className="book-shelf-changer">
             <select>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
