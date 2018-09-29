@@ -15,17 +15,24 @@ class BookShelf extends Component {
       return (<Books key={count++} title = {book.title}  author={book.author} coverImage={book.coverImage} />);
     }
 
-    console.log('test', this.props);
-  return (
-      <div className="bookshelf">
-        <h2 className="bookshelf-title">{this.props.shelfName}</h2>
-          <div className="bookshelf-books">
-            <ol className="books-grid">
-              {this.props.books.map(renderBook)}
-            </ol>
+    if (this.props.books!=null && this.props.books.length>0) {
+      return (
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">{this.props.shelfName}</h2>
+            <div className="bookshelf-books">
+              <ol className="books-grid">
+                {this.props.books.map(renderBook)}
+              </ol>
+          </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className="bookshelf">
+          <h2 className="bookshelf-title">{this.props.shelfName} No Matches Found</h2>
+        </div>
+      )
+    }
   }
 }
 export default BookShelf
