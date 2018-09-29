@@ -8,7 +8,7 @@ import './App.css'
 
 import Books from './components/Books'
 import BookShelf from './components/BookShelf'
-import Search from './components/Search'
+//import Search from './components/Search'
 
 
 class BooksApp extends React.Component {
@@ -21,6 +21,7 @@ class BooksApp extends React.Component {
      */
      books: [], //creats open array for storing books
      query: [], //open search query
+     foundBooks: [],
     showSearchPage: false
   }
 
@@ -31,6 +32,22 @@ class BooksApp extends React.Component {
     }))
 
   }
+
+  // when user enters each character in search bar,
+  // call BooksAPI.search
+  updateQuery = (query) => {
+    this.setState({query})
+    this.runSearch(query)
+  }
+
+  runSearch = (query) => {
+    BooksAPI.search(query).then((books => {
+      this.setState({foundBooks:books})
+    }))
+
+
+  }
+
 
   render() {
 
@@ -61,12 +78,17 @@ class BooksApp extends React.Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-                <input type="text" placeholder="Search by title or author"/>
-
+                <input
+                  type="text"
+                  placeholder="Search by title or author"
+                  value={this.state.query}
+                  onChange={(event) => this.updateQuery(event.target.value)}
+                />
               </div>
             </div>
             <div className="search-books-results">
               <ol className="books-grid"></ol>
+              <BookShelf shelfName='found' books={this.state.foundBooks}/>
             </div>
           </div>
         ) : (
