@@ -12,7 +12,7 @@ class BookShelf extends Component {
   render() {
     let count = 0;
     let renderBook = (book) => {
-      return (<Books key={count++} title = {book.title}  author={book.author} coverImage={book.coverImage} />);
+      return (<Books key={count++} title = {book.title}  author={book.author} coverImage={book.imageLinks.thumbnail} />);
     }
 
     if (this.props.books!=null && this.props.books.length>0) {
