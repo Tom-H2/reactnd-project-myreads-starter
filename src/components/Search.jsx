@@ -51,8 +51,7 @@ class Search extends Component {
         ) : (
           <div className="list-books"></div>
         )
-
-	}
+			}
 	</div>
  )
 }
