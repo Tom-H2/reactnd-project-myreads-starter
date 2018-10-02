@@ -9,7 +9,11 @@ class ChangeShelf extends Component { //https://reactjs.org/docs/forms.html
 
   }
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({value: event.target.value},
+      function(change) {
+        this.props.moveBook(change, this.state.value)
+      }
+    );
   }
 
   render() {
