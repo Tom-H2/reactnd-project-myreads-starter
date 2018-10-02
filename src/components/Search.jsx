@@ -4,16 +4,23 @@
 // import React
 import React, {Component} from 'react'
 
-// method to update books
-// Book component  - displays thumbnail image, title, authors(NEED WORK), picklist
 class Search extends Component {
-	// method to check if search results are already on a shelf
- //open search query
 
 	constructor(props) {
-    super(props);
-    this.state = (query);
-	}
+ 	 super(props);
+ 	 this.state = {
+		 	books: [],
+      results: [],
+      query: "",
+		};
+	 }
+
+ componentDidMount() { //instantiates network request
+	 BooksAPI.getAll().then((books => {
+		 this.setState ({books:books})
+		 console.log(books); //shows books array in console
+	 }))
+  }
 
 	updateQuery = (query) => {
 		this.setState({query})
@@ -29,8 +36,6 @@ class Search extends Component {
 	render() {
 
 		return (
-			<div className="app">
-        {this.state.showSearchPage ? (
           <div className="search-books">
             <div className="search-books-bar">
               <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
@@ -48,11 +53,7 @@ class Search extends Component {
               <BookShelf shelfName='found' books={this.state.foundBooks}/>
             </div>
           </div>
-        ) : (
-          <div className="list-books"></div>
         )
-			}
-	</div>
- )
-}
+	}
+
 export default Search;
