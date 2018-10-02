@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
 class ChangeShelf extends Component { //https://reactjs.org/docs/forms.html
-  
+
   constructor(props) {
     super(props);
-    this.state = {value: 'Move to...'};
+    this.state = {value: 'Move to...'}; //sets the value of <selec> to first menu option
     this.handleChange = this.handleChange.bind(this);
 
   }
