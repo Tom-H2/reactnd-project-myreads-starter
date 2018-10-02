@@ -50,7 +50,10 @@ class BooksApp extends React.Component {
 
   }
 
+  moveBook(book, shelf) {
+    this.setState({value: this.state.value});
 
+  }
   render() {
     let Books = [];
 
