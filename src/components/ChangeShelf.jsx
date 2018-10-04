@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class ChangeShelf extends Component { //https://reactjs.org/docs/forms.html
-
+                                      //This component handles the select drop down menu and attaches it to the books
   constructor(props) {
     super(props);
     this.state = {value: 'Move to...'}; //sets the value of <selec> to first menu option
