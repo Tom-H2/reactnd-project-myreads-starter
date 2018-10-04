@@ -8,7 +8,7 @@ import './App.css'
 
 import Books from './components/Books'
 import BookShelf from './components/BookShelf'
-import ChangeShelf from './components/ChangeShelf'
+//import ChangeShelf from './components/ChangeShelf'
 //import Search from './components/Search'
 
 
@@ -50,10 +50,6 @@ class BooksApp extends React.Component {
 
   }
 
-  moveBook(book, shelf) {
-    this.setState({value: this.state.value});
-
-  }
   render() {
     let Books = [];
 
@@ -97,7 +93,7 @@ class BooksApp extends React.Component {
               </div>
             </div>
             <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a> //minute 20 on Ryan tutorial
             </div>
           </div>
         )}
