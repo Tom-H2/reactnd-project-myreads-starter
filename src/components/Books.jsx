@@ -4,8 +4,8 @@ import React, { Component } from 'react'
 import ChangeShelf from './ChangeShelf'
 export default class Book extends Component {
   render() {
-    let coverImage = this.prop.book.imageLinks ?
-      this.props.book.imageLinks.thumbnail : ''
+    {/*let coverImage = this.prop.book.imageLinks ?
+      this.props.book.imageLinks.thumbnail : ''*/}
   return (
     <li>
       <div className="book">
@@ -16,7 +16,7 @@ export default class Book extends Component {
                 this.props.book, e.target.value
             )}
                 value={this.props.currentShelf}>
-                
+
               <option value="move">Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
