@@ -9,7 +9,7 @@ import './App.css'
 import Books from './components/Books'
 import BookShelf from './components/BookShelf'
 //import ChangeShelf from './components/ChangeShelf'
-//import Search from './components/Search'
+import Search from './components/Search'
 
 
 class BooksApp extends React.Component {
@@ -44,7 +44,7 @@ class BooksApp extends React.Component {
 
   runSearch = (query) => {
     BooksAPI.search(query).then((books => {
-      this.setState({foundBooks:books})
+      this.setState({foundBooks: books})
     }))
 
 
