@@ -5,16 +5,37 @@
 // import React
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import Books from './Books'
+import * as BooksAPI from '../BooksAPI'
 class Search extends Component {
 
 	constructor(props) {
  	 super(props);
  	 this.state = {
 		 	books: [],
-      results: [],
       query: "",
 		};
 	 }
+
+	 // when user enters each character in search bar,
+   // call BooksAPI.search
+   updateQuery = (query) => {
+     this.setState({query})
+     this.runSearch(query)
+   }
+
+   runSearch = (query) => {
+		 if (query) {
+			 BooksAPI.search(query).then(books => {
+				 if (books.error) {
+					 this.setState({books: []})
+				 }
+				 else {
+	       		this.setState({books})
+				 }
+	     })}
+			else {this.setState({books: []})}
+   }
 
 	render() {
 
