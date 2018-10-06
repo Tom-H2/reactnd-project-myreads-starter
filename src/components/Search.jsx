@@ -7,9 +7,10 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Books from './Books'
 import * as BooksAPI from '../BooksAPI'
+
 class Search extends Component {
 
-	constructor(props) {
+	/*constructor(props) {
  	 super(props);
  	 this.state = {
 		 	books: [],
@@ -35,21 +36,17 @@ class Search extends Component {
 				 }
 	     })}
 			else {this.setState({books: []})}
-   }
+   }*/
 
 	render() {
-
-		return (
+			return (
           <div className="search-books">
             <div className="search-books-bar">
-              <link className="close-search" to="/">Close</link>
+              <Link className="close-search" to="/">Close</Link>
               <div className="search-books-input-wrapper">
                 <input
                   type="text"
-                  placeholder="Search by title or author"
-                  value={this.state.query}
-                  onChange={(event) => this.updateQuery(event.target.value)}
-                />
+                  placeholder="Search by title or author"/>
               </div>
             </div>
             <div className="search-books-results">

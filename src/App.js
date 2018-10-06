@@ -1,15 +1,16 @@
 //import React libraries
 import React from 'react'
-import { link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 //imports API
-import * as BooksAPI from './BooksAPI'
+//import * as BooksAPI from './BooksAPI'
 import './App.css'
 
 import Books from './components/Books'
 import BookShelf from './components/BookShelf'
 //import ChangeShelf from './components/ChangeShelf'
 import Search from './components/Search'
+import BookCase from './components/BookCase'
 
 
 class BooksApp extends React.Component {
@@ -24,81 +25,34 @@ class BooksApp extends React.Component {
      query: [], //open search query
      move: [],
      foundBooks: [],
-     showSearchPage: false
-  }
-
-  componentDidMount() { //instantiates network request
-    BooksAPI.getAll().then((books => {
-      this.setState ({books:books})
-      console.log(books); //shows books array in console
-    }))
-
-  }
-
-  // when user enters each character in search bar,
-  // call BooksAPI.search
-  updateQuery = (query) => {
-    this.setState({query})
-    this.runSearch(query)
-  }
-
-  runSearch = (query) => {
-    BooksAPI.search(query).then((books => {
-      this.setState({foundBooks: books})
-    }))
-
-
+     //showSearchPage: false
   }
 
   render() {
+    return (
+      <div>
+        <Route exact path="/" component= { BookCase } />
+        <Route exact path="/" component= { Search } />
+      </div>
+    );
+
+
+  // when user enters each character in search bar,
+  // call BooksAPI.search
+
+  /*render() {
     let Books = [];
 
-    return (
+    return (*/
       /*TODO This isn't correct but I copies everything over to Search.jsx so both files have the same code fom here down.
         <Search
         onChange={(event) => this.updateQuery(event.target.value)}
          <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>/>
       */
 
-      <div className="app">
-        {this.state.showSearchPage ? (
-          <div className="search-books">
-            <div className="search-books-bar">
-              <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
-              <div className="search-books-input-wrapper">
-                <input
-                  type="text"
-                  placeholder="Search by title or author"
-                  value={this.state.query}
-                  onChange={(event) => this.updateQuery(event.target.value)}
-                />
-              </div>
-            </div>
-            <div className="search-books-results">
-              <ol className="books-grid"></ol>
-              <BookShelf shelfName='found' books={this.state.foundBooks}/>
-            </div>
-          </div>
-        ) : (
-          <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
-              <div className="list-books-content">
-{/*BookShelf start*/}
-              <div>
-                <BookShelf shelfName='Currently Reading'/>
-                <BookShelf shelfName='Want to Read'/>
-                <BookShelf shelfName='Read'/>
-              </div>
-            </div>
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a> //minute 20 on Ryan tutorial
-            </div>
-          </div>
-        )}
+      <div>
+        App
       </div>
-    )
   }
 }
 
