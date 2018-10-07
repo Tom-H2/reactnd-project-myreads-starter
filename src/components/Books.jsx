@@ -1,7 +1,7 @@
 //Component to get API data about individual books
 
 import React, { Component } from 'react'
-import ChangeShelf from './ChangeShelf'
+//import ChangeShelf from './ChangeShelf'
 
 export default class Book extends Component {
   componentDidMount () {
@@ -9,8 +9,6 @@ export default class Book extends Component {
   }
 
   render() {
-    {/*let coverImage = this.prop.book.imageLinks ?
-      this.props.book.imageLinks.thumbnail : ''*/}
   return (
     <li>
       <div className="book">
