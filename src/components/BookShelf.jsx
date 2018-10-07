@@ -10,31 +10,18 @@ class BookShelf extends Component {
     console.log(this);//test to verify which books are on the shelves
   }
 
-
+//The code here allows the BooksAPI to to be sorted into different shelves which is carried out by the <select> code contained in Books.jsx
   render() {
-    let count = 0;
-    let renderBook = (book) => {
-      return (<Books key={count++} title = {book.title}  author={book.author} coverImage={book.imageLinks.thumbnail} />);
-    }
-
-    if (this.props.books!=null && this.props.books.length>0) {
       return (
         <div className="bookshelf">
           <h2 className="bookshelf-title">{this.props.shelfName}</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
-                {this.props.books.map(renderBook)}
+                {this.props.books.map((book, key) => <Books book={book} key={key} />)}
               </ol>
           </div>
         </div>
-      )
-    } else {
-      return (
-        <div className="bookshelf">
-          <h2 className="bookshelf-title">{this.props.shelfName} No Matches Found</h2>
-        </div>
-      )
-    }
+      );
   }
 }
 export default BookShelf
