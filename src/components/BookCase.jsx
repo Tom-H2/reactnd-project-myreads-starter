@@ -1,3 +1,5 @@
+//import API and set up shelves
+
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '.././BooksAPI'
@@ -15,7 +17,7 @@ class BookCase extends Component {
   componentDidMount() { //instantiates network request
     BooksAPI.getAll().then(books => {
       console.log(books); //shows books array in console
-      this.setState ({books:books});
+      this.setState ({ books:books });
     });
   }
 
