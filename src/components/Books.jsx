@@ -2,7 +2,12 @@
 
 import React, { Component } from 'react'
 import ChangeShelf from './ChangeShelf'
+
 export default class Book extends Component {
+  componentDidMount () {
+    console.log(this);//test to verify which books are on the shelves
+  }
+
   render() {
     {/*let coverImage = this.prop.book.imageLinks ?
       this.props.book.imageLinks.thumbnail : ''*/}
@@ -10,7 +15,7 @@ export default class Book extends Component {
     <li>
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.coverImage})` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageLinks && this.props.imageLinks.thumbnail || ""})` }}></div>
           <div className = 'change-shelf-changer'>
             <select onChange={(e) => this.props.changeShelf(
                 this.props.book, e.target.value

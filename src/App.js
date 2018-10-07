@@ -25,7 +25,7 @@ class BooksApp extends React.Component {
      query: [], //open search query
      move: [],
      foundBooks: [],
-     //showSearchPage: false
+     showSearchPage: false
   }
 
   render() {
@@ -36,14 +36,6 @@ class BooksApp extends React.Component {
       </div>
     );
 
-
-  // when user enters each character in search bar,
-  // call BooksAPI.search
-
-  /*render() {
-    let Books = [];
-
-    return (*/
       /*TODO This isn't correct but I copies everything over to Search.jsx so both files have the same code fom here down.
         <Search
         onChange={(event) => this.updateQuery(event.target.value)}

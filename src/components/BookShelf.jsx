@@ -6,7 +6,9 @@ import React, { Component } from 'react'
 import Books from './Books'
 
 class BookShelf extends Component {
-  //use map() to sort through BooksAPI
+  componentDidMount () {
+    console.log(this);//test to verify which books are on the shelves
+  }
 
 
   render() {

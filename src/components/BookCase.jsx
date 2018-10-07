@@ -5,13 +5,20 @@ import BookShelf from './BookShelf'
 
 
 class BookCase extends Component {
-  componentDidMount() { //instantiates network request
-    BooksAPI.getAll().then((books => {
-      //this.setState ({books:books})
-      console.log(books); //shows books array in console
-    }))
-
+  constructor(props) {
+    super(props);
+    this.state = { //sets the value of <selec> to first menu option
+      books: []
+    }
   }
+
+  componentDidMount() { //instantiates network request
+    BooksAPI.getAll().then(books => {
+      console.log(books); //shows books array in console
+      this.setState ({books:books});
+    });
+  }
+
   render() {
     return (
       <div className="list-books">
@@ -20,13 +27,13 @@ class BookCase extends Component {
         </div>
           <div className="list-books-content">
             <div>
-              <BookShelf shelfName='Currently Reading'/>
-              <BookShelf shelfName='Want to Read'/>
-              <BookShelf shelfName='Read'/>
+              <BookShelf shelfName='Currently Reading' books={this.state.books.filter(b => b.shelf === "currentlyReading")}/>
+              <BookShelf shelfName='Want to Read' books={this.state.books.filter(b => b.shelf === "wantToRead")}/>
+              <BookShelf shelfName='Read'books={this.state.books.filter(b => b.shelf === "read")}/>
             </div>
         </div>
         <div className="open-search">
-          <Link to="/Search">Add a book</Link> //minute 20 on Ryan tutorial
+          <Link to="/Search">Add a book</Link>
         </div>
       </div>
     );
