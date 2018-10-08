@@ -9,36 +9,32 @@ import Books from './Books'
 import * as BooksAPI from '../BooksAPI'
 
 class Search extends Component {
-	componentDidMount () {
-    console.log(this);//test to verify which books are on the shelves
-  }
 
 	constructor(props) {
  	 super(props);
  	 this.state = {
 		 	books: [],
-      query: "",
+      query: []
 		};
 	 }
 
+	 componentDidMount () {
+     BooksAPI.getAll()
+		 .then(book => {
+			 console.log(book);
+			 this.setState({ books: book });
+		 })
+   }
 	 // when user enters each character in search bar,
    // call BooksAPI.search
-   updateQuery = (query) => {
-     this.setState({query})
-     this.runSearch(query)
-   }
-
-   runSearch = (query) => {
-		 if (query) {
-			 BooksAPI.search(query).then(books => {
-				 if (books.error) {
-					 this.setState({books: []})
-				 }
-				 else {
-	       		this.setState({books})
-				 }
-	     })}
-			else {this.setState({books: []})}
+   updateBook = (book, shelf) => {
+		 BooksAPI.update(book, shelf)
+		 .then(book => {
+			 book.shelf = shelf;
+			 this.setState(state =>({
+				 books: state.books.filter(b => b.id !== book.id).concat({book})
+			 }));
+		 });
    }
 
 	render() {
