@@ -9,8 +9,11 @@ import Books from './Books'
 import * as BooksAPI from '../BooksAPI'
 
 class Search extends Component {
+	componentDidMount () {
+    console.log(this);//test to verify which books are on the shelves
+  }
 
-	/*constructor(props) {
+	constructor(props) {
  	 super(props);
  	 this.state = {
 		 	books: [],
@@ -36,7 +39,7 @@ class Search extends Component {
 				 }
 	     })}
 			else {this.setState({books: []})}
-   }*/
+   }
 
 	render() {
 			return (

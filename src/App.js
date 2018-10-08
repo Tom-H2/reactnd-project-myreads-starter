@@ -2,7 +2,7 @@
 import React from 'react'
 //import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
-//import * as BooksAPI from './BooksAPI'
+
 import './App.css'
 
 //import Books from './components/Books'
@@ -13,6 +13,7 @@ import BookCase from './components/BookCase';
 
 //App.js holds the components which are the two pages in the app. The main BookCase and the search page
 class BooksApp extends React.Component {
+
   render() {
     return (
       <div>
