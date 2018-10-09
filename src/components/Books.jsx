@@ -1,33 +1,23 @@
 //Component to get API data about individual books
 
-import React, { Component } from 'react'
+import React from 'react'
 //import ChangeShelf from './ChangeShelf'
-import * as BooksAPI from '../BooksAPI'
+//import * as BooksAPI from '../BooksAPI'
 
-export default class Book extends Component {
+const Book = ({ updateBook, book, key, currentShelf }) => {
 
-
-
-  constructor(props) {
-    super(props);
-    this.state = { //sets the value of <select> to first menu option
-      book: props.book
-    }
-  }
-
-  componentDidMount () {
-    console.log(this);//test to verify which books are on the shelves
-  }
-
-
-  render() {
   return (
     <li>
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.imageLinks})` }}></div>
+          <div
+            className="book-cover"
+            style={{ width: 128, height: 193, backgroundImage: `url(${
+            book.imageLinks ? book.imageLinks.thumbnail : 'https://3.bp.blogspot.com/-s3yBaPBn8Hc/Uh4-wAZOQLI/AAAAAAAAJT8/GY9d_VJFm3o/s200/play-books-no-cover.jpg'})`
+          }}
+          >
           <div className = 'change-shelf-changer'>
-            <select value={this.props.currentShelf || "none"} onChange = {(e) => { this.props.updateBook(this.props.book, e.target.value) }}>
+            <select value={currentShelf || "none"} onChange = {(e) => { updateBook(book, e.target.value) }}>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
@@ -35,11 +25,13 @@ export default class Book extends Component {
               <option value="none">None</option>
             </select>
           </div>
-        </div>
-        <div className="book-title">{this.props.title}</div>
-        <div className="book-authors">{this.props.author}</div>
+        <div className="book-title">{book.title}</div>
+        <div className="book-authors">{book.author}</div>
+      </div>
+      </div>
       </div>
     </li>
-  )
-  }
+  );
 }
+
+export default Book;

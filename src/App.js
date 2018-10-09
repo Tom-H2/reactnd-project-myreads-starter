@@ -12,7 +12,7 @@ import Search from './components/Search';
 import BookCase from './components/BookCase';
 
 //App.js holds the components which are the two pages in the app. The main BookCase and the search page
-class BooksApp extends React.Component {
+class App extends React.Component {
 
   render() {
     return (
@@ -24,4 +24,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default App
