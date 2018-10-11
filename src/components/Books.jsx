@@ -9,8 +9,6 @@ class Book extends Component {
     console.log(this);//test to verify which books are on the shelves
   }
 
-const Book = ({ updateBook, book, key, currentShelf }) => {
-
 render() {
   return (
     <li>
