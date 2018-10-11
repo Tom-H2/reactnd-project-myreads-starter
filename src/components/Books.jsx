@@ -1,8 +1,13 @@
 //Component to get API data about individual books
 
-import React from 'react'
+import React, { Component } from 'react'
 //import ChangeShelf from './ChangeShelf'
 //import * as BooksAPI from '../BooksAPI'
+
+class Book extends Component {
+  componentDidMount () {
+    console.log(this);//test to verify which books are on the shelves
+  }
 
 const Book = ({ updateBook, book, key, currentShelf }) => {
 
@@ -37,7 +42,7 @@ render() {
       </div>
     </li>
   )
-}
-}
 
+}
+}
 export default Book;
