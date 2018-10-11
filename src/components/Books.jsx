@@ -6,6 +6,7 @@ import React from 'react'
 
 const Book = ({ updateBook, book, key, currentShelf }) => {
 
+render() {
   return (
     <li>
       <div className="book">
@@ -16,9 +17,8 @@ const Book = ({ updateBook, book, key, currentShelf }) => {
               width: 128,
               height: 193,
               backgroundImage:
-              `url(${this.state.book.imageLinks.thumbnail })`
-          }}
-          ></div>
+              `url(${this.state.book.imageLinks.thumbnail})`
+          }}></div>
           <div className = 'change-shelf-changer'>
             <select
               value={this.state.book.shelf || "none"}
@@ -36,7 +36,8 @@ const Book = ({ updateBook, book, key, currentShelf }) => {
         <div className="book-authors">{this.props.author}</div>
       </div>
     </li>
-  );
+  )
+}
 }
 
 export default Book;
