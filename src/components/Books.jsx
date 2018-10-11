@@ -12,12 +12,18 @@ const Book = ({ updateBook, book, key, currentShelf }) => {
         <div className="book-top">
           <div
             className="book-cover"
-            style={{ width: 128, height: 193, backgroundImage: `url(${
-            book.imageLinks ? book.imageLinks.thumbnail : 'https://3.bp.blogspot.com/-s3yBaPBn8Hc/Uh4-wAZOQLI/AAAAAAAAJT8/GY9d_VJFm3o/s200/play-books-no-cover.jpg'})`
+            style={{
+              width: 128,
+              height: 193,
+              backgroundImage:
+              `url(${this.state.book.imageLinks.thumbnail })`
           }}
-          >
+          ></div>
           <div className = 'change-shelf-changer'>
-            <select value={currentShelf || "none"} onChange = {(e) => { updateBook(book, e.target.value) }}>
+            <select
+              value={this.state.book.shelf || "none"}
+              onChange =
+              {(e) => { this.props.updateBook(this.props.book, e.target.value) }}>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
@@ -25,10 +31,9 @@ const Book = ({ updateBook, book, key, currentShelf }) => {
               <option value="none">None</option>
             </select>
           </div>
-        <div className="book-title">{book.title}</div>
-        <div className="book-authors">{book.author}</div>
-      </div>
-      </div>
+        </div>
+        <div className="book-title">{this.props.title}</div>
+        <div className="book-authors">{this.props.author}</div>
       </div>
     </li>
   );
