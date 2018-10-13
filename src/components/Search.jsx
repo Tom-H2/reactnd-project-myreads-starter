@@ -6,17 +6,15 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Books from './Books'
-import * as BooksAPI from '.././BooksAPI'
+import * as BooksAPI from '.././BooksAPI' //error message says access is forbidden
 
 class Search extends Component {
 
-	constructor(props) {
- 	 super(props);
- 	 this.state = {
+ 	 state = {
 		 	books: [],
       query: []
 		};
-	 }
+
 
 	 componentDidMount () {
      BooksAPI.getAll()
