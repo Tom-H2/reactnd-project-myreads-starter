@@ -16,7 +16,7 @@ class BookCase extends Component {
 
   componentDidMount() { //instantiates network request
     BooksAPI.getAll().then(books => {
-      console.log(books); //shows books array in console
+      //console.log(books); //shows books array in console
       this.setState ({ books:books });
     });
   }

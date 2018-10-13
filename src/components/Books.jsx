@@ -6,7 +6,7 @@ import React, { Component } from 'react'
 
 class Book extends Component {
   componentDidMount () {
-    console.log(this);//test to verify which books are on the shelves
+    //console.log(this);//test to verify which books are on the shelves
   }
 
 render() {

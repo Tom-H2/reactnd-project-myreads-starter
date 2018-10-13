@@ -6,7 +6,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Books from './Books'
-import * as BooksAPI from '../BooksAPI'
+import * as BooksAPI from '.././BooksAPI'
 
 class Search extends Component {
 
@@ -45,14 +45,35 @@ class Search extends Component {
               <div className="search-books-input-wrapper">
                 <input
                   type="text"
-                  placeholder="Search by title or author"/>
+                  placeholder="Search by title or author"
+									value={this.state.query}
+					  			onChange={(e) => this.updateBook(e.target.value)}
+									/>
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
+								<h1>My Search Page</h1>
+								{this.state.query.map(r => {
+									let shelf = 'none'
+										this.props.books.map(b => (
+											b.id === r.id ?
+											shelf = b.shelf : ''
+										))
+								return (
+									<li key={r.id}>
+										<Books
+											book={r}
+											changeShelf={this.props.changeShelf}
+											currentShelf={shelf}
+										/>
+									</li>
+								)
+								})}
+							</ol>
             </div>
           </div>
         );
 	}
 }
-export default Search;
+export default Search
