@@ -6,6 +6,9 @@ import { Route } from 'react-router-dom'
 import './App.css'
 import Search from './components/Search';
 import BookCase from './components/BookCase';
+import Books from './components/Books';
+import BookShelf from './components/BookShelf';
+
 //TODO Fix the path to the search component
 //App.js holds the components which are the two pages in the app. The main BookCase and the search page
 class App extends React.Component {
@@ -15,6 +18,8 @@ class App extends React.Component {
       <div>
         <Route exact path="/" component= { BookCase } />
         <Route exact path="/Search" component= { Search } />
+        <Route exact path="/Books" component= { Books } />
+        <Route exact path="/BookShelf" component= { BookShelf } />
       </div>
     );
   }
