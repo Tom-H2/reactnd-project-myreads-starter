@@ -1,42 +1,63 @@
 
 // Display book image, title, author to page
-//This is currently not functional and the call in App.js is commented out
+//Coding help here from Jason Michael White
 
 // import React
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import Books from './Books'
+import BookShelf from './BookShelf'
 import * as BooksAPI from '.././BooksAPI' //error message says access is forbidden
 
 class Search extends Component {
 
- 	 state = {
-		 	books: [],
+      state = {
+             books: [],
       query: []
-		};
+        };
 
 
-	 componentDidMount () {
-     BooksAPI.getAll()
-		 .then(book => {
-			 console.log(book);
-			 this.setState({ books: book });
-		 })
-   }
-	 // when user enters each character in search bar,
+    //  componentDidMount () {
+  //    BooksAPI.getAll()
+    //      .then(book => {
+    //          console.log(book);
+    //          this.setState({ books: book });
+    //      })
+  //  }
+     // when user enters each character in search bar,
    // call BooksAPI.search
-   updateBook = (book, shelf) => {
-		 BooksAPI.update(book, shelf)
-		 .then(book => {
-			 book.shelf = shelf;
-			 this.setState(state =>({
-				 books: state.books.filter(b => b.id !== book.id).concat({book})
-			 }));
-		 });
-   }
+  //  updateBook = (book, shelf) => {
+    //      BooksAPI.update(book, shelf)
+    //      .then(book => {
+    //          book.shelf = shelf;
+    //          this.setState(state =>({
+    //              books: state.books.filter(b => b.id !== book.id).concat({book})
+    //          }));
+    //      });
+  //  }
 
-	render() {
-			return (
+     updateQuery = (query) => {
+         console.log('looking for books...');
+         this.setState({
+             query: query
+         });
+         if (query === '') {
+             this.setState({
+                 books: []
+             });
+             return;
+         }
+         BooksAPI.search(query).then(result => {
+             result instanceof Array ? this.setState({books: result}) : this.setState({ books: [] });
+         });
+         console.log(this.state.books);
+     }
+     handleChange = (e) => {
+         const val = e.target.value;
+         this.setState({ query: val });
+         this.updateQuery(val);
+     }
+    render() {
+            return (
           <div className="search-books">
             <div className="search-books-bar">
               <Link className="close-search" to="/">Close</Link>
@@ -44,34 +65,17 @@ class Search extends Component {
                 <input
                   type="text"
                   placeholder="Search by title or author"
-									value={this.state.query}
-					  			onChange={(e) => this.updateBook(e.target.value)}
-									/>
+                                    value={this.state.query}
+                                  onChange={this.handleChange}
+                                    />
               </div>
             </div>
-            <div className="search-books-results">
-              <ol className="books-grid">
-								<h1>My Search Page</h1>
-								{this.state.query.map(r => {
-									let shelf = 'none'
-										this.props.books.map(b => (
-											b.id === r.id ?
-											shelf = b.shelf : ''
-										))
-								return (
-									<li key={r.id}>
-										<Books
-											book={r}
-											changeShelf={this.props.changeShelf}
-											currentShelf={shelf}
-										/>
-									</li>
-								)
-								})}
-							</ol>
-            </div>
+                            <BookShelf
+                                books={this.state.books}
+                                changeShelf={this.props.changeShelf}
+                            />
           </div>
         );
-	}
+    }
 }
 export default Search
