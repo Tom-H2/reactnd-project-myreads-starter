@@ -5,15 +5,16 @@
 // import React
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+
 import BookShelf from './BookShelf'
 import * as BooksAPI from '.././BooksAPI' //error message says access is forbidden
 
 class Search extends Component {
 
       state = {
-             books: [],
-      query: []
-        };
+            books: [],
+      			query: []
+      };
 
 
     //  componentDidMount () {

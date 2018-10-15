@@ -7,16 +7,14 @@ import BookShelf from './BookShelf'
 
 
 class BookCase extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { //sets the value of <selec> to first menu option
+  state = { //sets the value of <selec> to first menu option
       books: []
     }
-  }
+
 
   componentDidMount() { //instantiates network request
     BooksAPI.getAll().then(books => {
-      //console.log(books); //shows books array in console
+      console.log(books); //shows books array in console
       this.setState ({ books:books });
     });
   }
