@@ -8,7 +8,7 @@ import Search from './components/Search';
 import BookCase from './components/BookCase';
 import Books from './components/Books';
 import BookShelf from './components/BookShelf';
-//import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 
 //TODO Fix the path to the search component
 //App.js holds the components which are the two pages in the app. The main BookCase and the search page
@@ -19,12 +19,12 @@ class App extends React.Component {
     }
 
 
-  /*componentDidMount() { //instantiates network request
+  componentDidMount() { //instantiates network request
     BooksAPI.getAll().then(books => {
       console.log(books); //shows books array in console
       this.setState ({ books:books });
     });
-  }*/
+  }
 
   render() {
     return (

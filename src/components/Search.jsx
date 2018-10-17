@@ -16,29 +16,9 @@ class Search extends Component {
       			query: ""  //empty query string
       };
 
-
-    //  componentDidMount () {
-  //    BooksAPI.getAll()
-    //      .then(book => {
-    //          console.log(book);
-    //          this.setState({ books: book });
-    //      })
-  //  }
-     // when user enters each character in search bar,
-   // call BooksAPI.search
-  //  updateBook = (book, shelf) => {
-    //      BooksAPI.update(book, shelf)
-    //      .then(book => {
-    //          book.shelf = shelf;
-    //          this.setState(state =>({
-    //              books: state.books.filter(b => b.id !== book.id).concat({book})
-    //          }));
-    //      });
-  //  }
-
      updateQuery = (query) => {
          console.log('looking for books...');
-         this.setState({ //The state of the query stinr
+         this.setState({ //The state of the query sting
              query: query
          });
          if (query === '') {
@@ -74,6 +54,7 @@ class Search extends Component {
                 <BookShelf
                     books={this.state.books}
                     changeShelf={this.props.changeShelf}
+                    updateBook={this.updateBooks}
                 />
           </div>
         );

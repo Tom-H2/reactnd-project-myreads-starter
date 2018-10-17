@@ -1,7 +1,6 @@
 //Component to get API data about individual books
 
 import React, { Component } from 'react'
-//import ChangeShelf from './ChangeShelf'
 //import * as BooksAPI from '../BooksAPI'
 
 class Book extends Component {
@@ -22,7 +21,7 @@ render() { //fixes search bug so books without images appear in search
               backgroundImage:
               `url("${coverThumb}")`
           }}></div>
-          <div className = 'change-shelf'>
+          <div className = 'book-shelf-changer'>
             <select
               value={this.props.book.shelf || "none"}
               onChange =
