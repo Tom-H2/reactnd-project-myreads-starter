@@ -6,9 +6,7 @@ import React, { Component } from 'react'
 import Books from './Books'
 
 class BookShelf extends Component {
-  componentDidMount () {
-    console.log(this);//test to verify which books are on the shelves
-  }
+
 
 //The code here allows the BooksAPI to to be sorted into different shelves which is carried out by the <select> code contained in Books.jsx
   render() {

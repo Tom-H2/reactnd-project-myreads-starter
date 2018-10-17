@@ -14,24 +14,15 @@ import BookShelf from './components/BookShelf';
 //App.js holds the components which are the two pages in the app. The main BookCase and the search page
 class App extends React.Component {
 
-  /*state = {
-    books: []
-  }
+  state = { //creates empty array in which to sort the books
+      books: []
+    }
 
-  componentDidMount() { //instantiates network request
+
+  /*componentDidMount() { //instantiates network request
     BooksAPI.getAll().then(books => {
       console.log(books); //shows books array in console
       this.setState ({ books:books });
-    });
-  }
-
-  updateBooks = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-    .then(resp => {
-      book.shelf = shelf;
-      this.setState(state => ({
-        books: state.books.filter(b => b.id !== book.id).concat({book})
-      }));
     });
   }*/
 

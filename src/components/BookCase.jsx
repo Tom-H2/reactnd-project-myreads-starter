@@ -1,4 +1,4 @@
-//import API and set up shelves
+
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
@@ -7,17 +7,17 @@ import BookShelf from './BookShelf'
 
 
 class BookCase extends Component {
+
   state = { //sets the value of <selec> to first menu option
       books: []
     }
 
-
-  componentDidMount() { //instantiates network request
-    BooksAPI.getAll().then(books => {
-      console.log(books); //shows books array in console
-      this.setState ({ books:books });
-    });
-  }
+    componentDidMount() { //instantiates network request
+      BooksAPI.getAll().then(books => {
+        this.setState ({ books:books });
+        console.log (books);
+      });
+    }
 
   updateBooks = (book, shelf) => {
     BooksAPI.update(book, shelf)

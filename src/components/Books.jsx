@@ -5,11 +5,11 @@ import React, { Component } from 'react'
 //import * as BooksAPI from '../BooksAPI'
 
 class Book extends Component {
-  componentDidMount () {
-    //console.log(this);//test to verify which books are on the shelves
-  }
+
 
 render() {
+  let coverThumb = this.props.book.imageLinks ?
+			this.props.book.imageLinks.thumbnail : ''
   return (
     <li>
       <div className="book">
@@ -20,7 +20,7 @@ render() {
               width: 128,
               height: 193,
               backgroundImage:
-              `url(${this.props.book.imageLinks.thumbnail})`
+              `url("${coverThumb}")`
           }}></div>
           <div className = 'change-shelf-changer'>
             <select

@@ -13,7 +13,7 @@ class Search extends Component {
 
       state = {
             books: [],
-      			query: []
+      			query: ""  //empty query string
       };
 
 
@@ -38,7 +38,7 @@ class Search extends Component {
 
      updateQuery = (query) => {
          console.log('looking for books...');
-         this.setState({
+         this.setState({ //The state of the query stinr
              query: query
          });
          if (query === '') {
@@ -66,15 +66,15 @@ class Search extends Component {
                 <input
                   type="text"
                   placeholder="Search by title or author"
-                                    value={this.state.query}
-                                  onChange={this.handleChange}
-                                    />
+                      value={this.state.query}
+                      onChange={this.handleChange}
+                />
               </div>
             </div>
-                            <BookShelf
-                                books={this.state.books}
-                                changeShelf={this.props.changeShelf}
-                            />
+                <BookShelf
+                    books={this.state.books}
+                    changeShelf={this.props.changeShelf}
+                />
           </div>
         );
     }
