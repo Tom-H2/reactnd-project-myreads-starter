@@ -22,7 +22,7 @@ render() { //fixes search bug so books without images appear in search
               backgroundImage:
               `url("${coverThumb}")`
           }}></div>
-          <div className = 'change-shelf-changer'>
+          <div className = 'change-shelf'>
             <select
               value={this.props.book.shelf || "none"}
               onChange =
@@ -35,8 +35,8 @@ render() { //fixes search bug so books without images appear in search
             </select>
           </div>
         </div>
-        <div className="book-title">{this.props.title}</div>
-        <div className="book-authors">{this.props.author}</div>
+        <div className="book-title">{this.props.book.title}</div>
+        <div className="book-authors">{this.props.book.author}</div>
       </div>
     </li>
   )
