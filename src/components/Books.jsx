@@ -7,7 +7,7 @@ import React, { Component } from 'react'
 class Book extends Component {
 
 
-render() {
+render() { //fixes search bug so books without images appear in search
   let coverThumb = this.props.book.imageLinks ?
 			this.props.book.imageLinks.thumbnail : ''
   return (
