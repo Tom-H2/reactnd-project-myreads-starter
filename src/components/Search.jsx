@@ -43,11 +43,11 @@ class Search extends Component {
        .then(resp => {
          book.shelf = shelf;
          this.setState(state => ({
-           books: state.books.filter(b => b.id !== book.id).concat({book})
+           books: state.books.filter(b => b.id !== book.id).concat(book)
          }));
        });
      }
-     
+
     render() {
             return (
           <div className="search-books">
