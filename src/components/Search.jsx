@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
 import BookShelf from './BookShelf'
-import * as BooksAPI from '.././BooksAPI' //error message says access is forbidden
+import * as BooksAPI from '.././BooksAPI'
 
 class Search extends Component {
 
@@ -37,7 +37,7 @@ class Search extends Component {
          this.setState({ query: val });
          this.updateQuery(val);
      }
-
+/*Commented out App.js should handle this shelf change
      updateBooks = (book, shelf) => {
        BooksAPI.update(book, shelf)
        .then(resp => {
@@ -47,6 +47,7 @@ class Search extends Component {
          }));
        });
      }
+*/
 
     render() {
             return (
@@ -66,7 +67,7 @@ class Search extends Component {
                 <BookShelf
                     books={this.state.books}
                     changeShelf={this.props.changeShelf}
-                    updateBook={this.updateBooks}
+                    updateBook={this.props.updateBooks}
                 />
           </div>
         );

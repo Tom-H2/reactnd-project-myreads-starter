@@ -18,21 +18,32 @@ class App extends React.Component {
       books: []
     }
 
+    //componentDidMount and updateBooks pasted over from BookCase
+    componentDidMount() { //instantiates network request
+      BooksAPI.getAll().then(books => {
+        this.setState ({ books:books });
+        console.log (books);
+      });
+    }
 
-  componentDidMount() { //instantiates network request
-    BooksAPI.getAll().then(books => {
-      console.log(books); //shows books array in console
-      this.setState ({ books:books });
+    updateBooks = (book, shelf) => { //function for switching shelves
+    BooksAPI.update(book, shelf)
+    .then(resp => {
+      book.shelf = shelf;
+      this.setState(state => ({
+        books: state.books.filter(b => b.id !== book.id).concat(book)
+      }));
     });
-  }
+    }
 
   render() {
     return (
       <div>
-        <Route exact path="/" component= { BookCase } />
-        <Route exact path="/Search" component= { Search } />
+        {/*<Route exact path="/" component= { BookCase } />*/}
         <Route exact path="/Books" component= { Books } />
         <Route exact path="/BookShelf" component= { BookShelf } />
+        <Route exact path="/" render={(() => (<BookCase updateBooks={this.updateBooks} books={this.state.books} />))}/>
+        <Route exact path="/Search" render={(() => (<Search updateBooks={this.updateBooks} books={this.state.books} />))}/>
       </div>
     );
   }

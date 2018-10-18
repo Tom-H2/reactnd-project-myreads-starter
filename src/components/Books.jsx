@@ -24,7 +24,7 @@ render() { //fixes search bug so books without images appear in search
           <div className = 'book-shelf-changer'>
             <select
               value={this.props.book.shelf || "none"}
-              onChange =
+              onChange = //allows for drop down menu to be changed then recorded when updateBook is invoked
               {(e) => { this.props.updateBook(this.props.book, e.target.value) }}>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
