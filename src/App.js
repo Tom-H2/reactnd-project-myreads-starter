@@ -6,8 +6,6 @@ import { Route } from 'react-router-dom'
 import './App.css'
 import Search from './components/Search';
 import BookCase from './components/BookCase';
-import Books from './components/Books';
-import BookShelf from './components/BookShelf';
 import * as BooksAPI from './BooksAPI'
 
 //App.js holds the components which are the two pages in the app. The main BookCase and the search page
