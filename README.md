@@ -1,6 +1,6 @@
 # MyReads Project
 
-This MyReads app represents too many hours to accurately report, and relies on too many collaborators to adequately cover. However I want to acknowledge the invaluable help from Project Coaches Doug Brown and Jason Michael White. I also want to thank my study buddy Susan Pommer who has been a constant source of support and good cheer.
+This MyReads app represents too many hours to accurately report, and relies on too many collaborators to adequately cover. My main contribution has been an unwillingness to give up, and a complete willingness to make jokes around React (and that's not simply an overReaction on my part.) However I want to acknowledge the invaluable help from Project Coaches Doug Brown and Jason Michael White. I also want to thank my study buddy Susan Pommer who has been a constant source of support and good cheer. 
 
 MyReads started with starter code provided by Udacity
 
@@ -8,12 +8,12 @@ The project dependencies were installed with `npm install` and a Python server i
 
 ## Objective of MyReads App
 
-This App is designed to search an API provided by Udacity and be able to shift the books found there between different shelves: "Currently Reading", "Want to Read", and "Read".
+This App is designed to search an API provided by Udacity and be able to shift the books found there between different shelves: "Currently Reading", "Want to Read", and "Read". The "None" option in the pull down menu places the book only in the search results.
 
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods needed to perform necessary operations on the backend:
 
 * [`getAll`](#getall)
 * [`update`](#update)
