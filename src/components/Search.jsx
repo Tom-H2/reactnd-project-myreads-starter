@@ -12,7 +12,7 @@ import * as BooksAPI from '.././BooksAPI'
 class Search extends Component {
 
       state = {
-            books: [],
+            books: [], //empty array for books in API
       			query: ""  //empty query string
       };
 
@@ -27,7 +27,7 @@ class Search extends Component {
              });
              return;
          }
-         BooksAPI.search(query).then(result => {
+         BooksAPI.search(query).then(result => { //renders the books from the API
              result instanceof Array ? this.setState({books: result}) : this.setState({ books: [] });
          });
          console.log(this.state.books);
@@ -37,17 +37,14 @@ class Search extends Component {
          this.setState({ query: val });
          this.updateQuery(val);
      }
-/*Commented out App.js should handle this shelf change
-     updateBooks = (book, shelf) => {
-       BooksAPI.update(book, shelf)
-       .then(resp => {
-         book.shelf = shelf;
-         this.setState(state => ({
-           books: state.books.filter(b => b.id !== book.id).concat(book)
-         }));
-       });
-     }
-*/
+
+     mergeSearchWithBookcase(searchResult) { //manages the string on the select menu
+        searchResult.forEach(book => {
+            let matches = this.props.books.filter(b => b.title === book.title);
+            matches.length > 0 ? book.shelf = matches[0].shelf : book.shelf = 'none';
+        });
+        return searchResult;
+    }
 
     render() {
             return (
@@ -63,7 +60,6 @@ class Search extends Component {
                 />
               </div>
             </div>
-
                 <BookShelf
                     books={this.state.books}
                     changeShelf={this.props.changeShelf}

@@ -11,24 +11,7 @@ class BookCase extends Component {
   state = { //sets the value of <selec> to first menu option
       books: []
     }
-/* These functions commented out and moved into App.js on 10_18_18
-    componentDidMount() { //instantiates network request
-      BooksAPI.getAll().then(books => {
-        this.setState ({ books:books });
-        console.log (books);
-      });
-    }
 
-  updateBooks = (book, shelf) => { //function for switching shelves
-    BooksAPI.update(book, shelf)
-    .then(resp => {
-      book.shelf = shelf;
-      this.setState(state => ({
-        books: state.books.filter(b => b.id !== book.id).concat(book)
-      }));
-    });
-  }
-*/
   render() {
     return (
       <div className="list-books">

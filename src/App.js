@@ -10,7 +10,6 @@ import Books from './components/Books';
 import BookShelf from './components/BookShelf';
 import * as BooksAPI from './BooksAPI'
 
-//TODO Fix the path to the search component
 //App.js holds the components which are the two pages in the app. The main BookCase and the search page
 class App extends React.Component {
 
@@ -18,15 +17,14 @@ class App extends React.Component {
       books: []
     }
 
-    //componentDidMount and updateBooks pasted over from BookCase
-    componentDidMount() { //instantiates network request
+    componentDidMount() { //instantiates network request for BooksAPI
       BooksAPI.getAll().then(books => {
         this.setState ({ books:books });
         console.log (books);
       });
     }
 
-    updateBooks = (book, shelf) => { //function for switching shelves
+    updateBooks = (book, shelf) => { //function for switching shelves passes down to BookCase and Search
     BooksAPI.update(book, shelf)
     .then(resp => {
       book.shelf = shelf;
@@ -39,7 +37,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/*<Route exact path="/" component= { BookCase } />*/}
         <Route exact path="/Books" component= { Books } />
         <Route exact path="/BookShelf" component= { BookShelf } />
         <Route exact path="/" render={(() => (<BookCase updateBooks={this.updateBooks} books={this.state.books} />))}/>
