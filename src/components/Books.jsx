@@ -1,7 +1,6 @@
 //Component to get API data about individual books
 
 import React, { Component } from 'react'
-//import * as BooksAPI from '../BooksAPI'
 
 class Book extends Component {
 
@@ -35,7 +34,7 @@ render() { //fixes search bug so books without images appear in search
           </div>
         </div>
         <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.author}</div>
+        <div className="book-authors">{this.props.book.authors.join(', ')}</div>
       </div>
     </li>
   )
