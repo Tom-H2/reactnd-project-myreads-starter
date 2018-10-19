@@ -1,6 +1,8 @@
 # MyReads Project
 
-This MyReads app represents too many hours to accurately report, and relies on too many collaborators to adequately cover. My main contribution has been an unwillingness to give up, and a complete willingness to make jokes around React (and that's not simply an overReaction on my part.) However I want to acknowledge the invaluable help from Project Coaches Doug Brown and Jason Michael White. I also want to thank my study buddy Susan Pommer who has been a constant source of support and good cheer. 
+This MyReads app was completed as a requirement for the Udacity FEND certification. It is the work of Thomas Harris, a Grow with Google student in the FEND Program.
+
+This MyReads app represents too many hours to accurately report, and relies on too many collaborators to adequately cover. My main contribution has been an unwillingness to give up, and a complete willingness to make jokes around React (and that's not simply an overReaction on my part.) However I want to acknowledge the invaluable help from Project Coaches Doug Brown and Jason Michael White. I also want to thank my study buddy Susan Pommer who has been a constant source of support and good cheer.
 
 MyReads started with starter code provided by Udacity
 
@@ -30,5 +32,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Contributing
 
 Video tutorial https://www.youtube.com/watch?v=acJHkd6K5kI&feature=youtu.be
-
-This repository is the starter code for _all_ Udacity students.
