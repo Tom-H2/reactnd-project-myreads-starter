@@ -38,7 +38,7 @@ class Search extends Component {
          }
 
          BooksAPI.search(query).then(result => { //renders the books from the API
-             result instanceof Array ? this.setState({books: result}) : this.setState({ books: [] });
+             result instanceof Array ? this.setState({books: this.mergeSearchWithBookcase(result)}) : this.setState({ books: [] });
          });
          //console.log(this.state.books);
      }
