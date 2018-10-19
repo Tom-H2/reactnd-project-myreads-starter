@@ -29,7 +29,7 @@ class Search extends Component {
          this.setState({ //The state of the query sting
              query: query
          });
-         if (query === '') {
+         if (!query) {
              this.setState({
                  books: []
              });
