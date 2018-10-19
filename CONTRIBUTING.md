@@ -1,3 +1,3 @@
 # How to contribute
 
-The files in this repository are used in the course videos and are the starting point for all students. Because we want all students to have the same experience going through course, if your pull request alters any of the core files, then it (most likely) will _not_ be merged into the project.
+This MyBooks app is the work of Thomas Harris and collaborators too numerous to fully name. However several people are named in the README.md file. Anyone is welcome to contribute to it. The repo can be accessed at https://github.com/Tom-H2/reactnd-project-myreads-starter
