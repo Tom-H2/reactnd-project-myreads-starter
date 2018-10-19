@@ -2,15 +2,12 @@
 
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-//import * as BooksAPI from '.././BooksAPI' //commented out when functions moved to App.js
 import BookShelf from './BookShelf'
 
 
 class BookCase extends Component {
 
-  state = { //sets the value of <selec> to first menu option
-      books: []
-    }
+  
 
   render() {
     return (
