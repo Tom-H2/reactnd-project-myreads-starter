@@ -16,6 +16,14 @@ class Search extends Component {
       			query: ""  //empty query string
       };
 
+      mergeSearchWithBookcase(searchResult) { //manages the string on the select menu
+         searchResult.forEach(book => {
+             let matches = this.props.books.filter(b => b.title === book.title);
+             matches.length > 0 ? book.shelf = matches[0].shelf : book.shelf = 'none';
+         });
+         return searchResult;
+      }
+
      updateQuery = (query) => {
          console.log('looking for books...');
          this.setState({ //The state of the query sting
@@ -25,26 +33,20 @@ class Search extends Component {
              this.setState({
                  books: []
              });
+
              return;
          }
+
          BooksAPI.search(query).then(result => { //renders the books from the API
              result instanceof Array ? this.setState({books: result}) : this.setState({ books: [] });
          });
-         console.log(this.state.books);
+         //console.log(this.state.books);
      }
      handleChange = (e) => {
          const val = e.target.value;
          this.setState({ query: val });
          this.updateQuery(val);
      }
-
-     mergeSearchWithBookcase(searchResult) { //manages the string on the select menu
-        searchResult.forEach(book => {
-            let matches = this.props.books.filter(b => b.title === book.title);
-            matches.length > 0 ? book.shelf = matches[0].shelf : book.shelf = 'none';
-        });
-        return searchResult;
-    }
 
     render() {
             return (
