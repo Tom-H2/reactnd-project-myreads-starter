@@ -8,6 +8,11 @@ class Book extends Component {
 render() { //fixes search bug so books without images appear in search
   let coverThumb = this.props.book.imageLinks ?
 			this.props.book.imageLinks.thumbnail : ''
+
+  //The following variable is attributed to Susan Pommer
+  let authorsPrintOut = this.props.book.authors ?
+      this.props.book.authors.join(", ") : ''
+
   return (
     <li>
       <div className="book">
@@ -34,7 +39,7 @@ render() { //fixes search bug so books without images appear in search
           </div>
         </div>
         <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors.join(', ')}</div>
+        <div className="book-authors">{authorsPrintOut}</div>
       </div>
     </li>
   )
