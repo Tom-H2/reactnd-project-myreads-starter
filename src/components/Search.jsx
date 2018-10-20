@@ -1,4 +1,3 @@
-
 // Display book image, title, author to page
 //Coding help here from Jason Michael White
 

@@ -7,8 +7,6 @@ import BookShelf from './BookShelf'
 
 class BookCase extends Component {
 
-  
-
   render() {
     return (
       <div className="list-books">

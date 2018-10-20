@@ -6,7 +6,7 @@ class Book extends Component {
 
 
 render() { //fixes search bug so books without images appear in search
-  let coverThumb = this.props.book.imageLinks ?
+  let coverThumb = this.props.book.imageLinks ? //Ternary to allow books without images to render
 			this.props.book.imageLinks.thumbnail : ''
 
   //The following variable is attributed to Susan Pommer
@@ -42,8 +42,7 @@ render() { //fixes search bug so books without images appear in search
         <div className="book-authors">{authorsPrintOut}</div>
       </div>
     </li>
-  )
-
-}
+    )
+  }
 }
 export default Book;

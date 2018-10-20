@@ -4,7 +4,9 @@ This MyReads app was completed as a requirement for the Udacity FEND certificati
 
 This MyReads app represents too many hours to accurately report, and relies on too many collaborators to adequately cover. My main contribution has been an unwillingness to give up, and a complete willingness to make jokes around React (and that's not simply an overReaction on my part.) However I want to acknowledge the invaluable help from Project Coaches Doug Brown and Jason Michael White. I also want to thank my study buddy Susan Pommer who has been a constant source of support and good cheer.
 
-MyReads started with starter code provided by Udacity
+MyReads started with starter code provided by Udacity.
+
+This App is open to additions or other contributions. The repo can be found at Github by following this path: https://github.com/Tom-H2/reactnd-project-myreads-starter
 
 The project dependencies were installed with `npm install` and a Python server initiates with `npm start` at http://localhost:3000/.
 
